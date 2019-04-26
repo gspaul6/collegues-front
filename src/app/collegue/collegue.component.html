@@ -36,24 +36,31 @@
           </div>
         </div>
         <div class='row'>
-            <div class='col-lg-5 col-sm-12'>
-              <p>email:</p>
-            </div>
-            <div class='col-lg-7 col-sm-12'>
-              <p>{{col.email}}</p>
-            </div>
+          <div class='col-lg-5 col-sm-12'>
+            <p>email:</p>
           </div>
-          <div class='row'>
-              <div class='col-lg-5 col-sm-12'>
-                <p>date de Naissance:</p>
-              </div>
-              <div class='col-lg-7 col-sm-12'>
-                <p>{{col.dateDeNaissance}}</p>
-              </div>
-            </div>
+          <div class='col-lg-7 col-sm-12'>
+            <p>{{col.email}}</p>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-lg-5 col-sm-12'>
+            <p>date de Naissance:</p>
+          </div>
+          <div class='col-lg-7 col-sm-12'>
+            <p>{{col.dateDeNaissance}}</p>
+          </div>
+        </div>
       </div>
     </div>
     <div "card-footer">
-
+      <div class="row">
+        <div class=col-6>
+          <button (click)="newCollegue()">Créer un nouveau collègue</button>
+        </div>
+        <div class=col-6>
+            <button (click)="Modifier()">Modifier</button>
+        </div>
+      </div>
     </div>
   </div>

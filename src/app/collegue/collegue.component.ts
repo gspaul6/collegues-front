@@ -13,8 +13,10 @@ export class CollegueComponent implements OnInit {
   
     @Input()col:Collegue;
 
-  
-  
+  newCollegue(){
+
+  }
+  Modifier(){}
 
   ngOnInit() {
   }
