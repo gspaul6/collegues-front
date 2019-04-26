@@ -1,4 +1,5 @@
 import { Component, OnInit} from '@angular/core';
+import { collegueMock } from './mock/collegues.mock';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,11 @@ import { Component, OnInit} from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'collegues-front';
+
+   colCollegue=collegueMock;
   
   ngOnInit(): void {
-    throw new Error("Method not implemented.");
+   // console.log(this.collegue)
   }
  
 }
