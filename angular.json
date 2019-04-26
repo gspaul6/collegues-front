@@ -25,9 +25,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [
-              "build": "ng build --prod --base-href https://gspaul6.github.io/collegues-front/"
-            ],
+            "scripts": [],
             
             "es5BrowserSupport": true
           },
