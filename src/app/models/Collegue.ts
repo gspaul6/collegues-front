@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 export class Collegue implements OnInit {
+  ngOnInit(): void {
+    throw new Error("Method not implemented.");
+  }
     public matricule: string;
     public  nom: string;
     public prenoms: string;
@@ -18,9 +21,7 @@ export class Collegue implements OnInit {
             this.photoUrl=photoUrl;
     }
 
-    ngOnInit(): void {
-        throw new Error("Method not implemented.");
-    }
+    
 
 
 

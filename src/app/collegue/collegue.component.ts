@@ -23,6 +23,5 @@ export class CollegueComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-
+}
 }
