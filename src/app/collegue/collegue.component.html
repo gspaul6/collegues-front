@@ -1,66 +1,63 @@
-<p>
-  collegue works!
-</p>
-<div class="card">
-  <div class="card-header">
-    <h2>{{col.nom}} {{col.prenoms}} </h2>
-  </div>
-  <div class="card-body">
-    <div class="row">
-      <div class="col-4">
-        <img src="col.photoUrl">
-      </div>
-      <div class="col-8">
-        <div class='row'>
-          <div class='col-lg-5 col-sm-12'>
-            <p>Matricule:</p>
-          </div>
-          <div class='col-lg-7 col-sm-12'>
-            <p>{{col.matricule}}</p>
-          </div>
-        </div>
-        <div class='row'>
-          <div class='col-lg-5 col-sm-12'>
-            <p>Nom:</p>
-          </div>
-          <div class='col-lg-7 col-sm-12'>
-            <p>{{col.nom}}</p>
-          </div>
-        </div>
-        <div class='row'>
-          <div class='col-lg-5 col-sm-12'>
-            <p>Prenom:</p>
-          </div>
-          <div class='col-lg-7 col-sm-12'>
-            <p>{{col.prenoms}}</p>
-          </div>
-        </div>
-        <div class='row'>
-          <div class='col-lg-5 col-sm-12'>
-            <p>email:</p>
-          </div>
-          <div class='col-lg-7 col-sm-12'>
-            <p>{{col.email}}</p>
-          </div>
-        </div>
-        <div class='row'>
-          <div class='col-lg-5 col-sm-12'>
-            <p>date de Naissance:</p>
-          </div>
-          <div class='col-lg-7 col-sm-12'>
-            <p>{{col.dateDeNaissance}}</p>
-          </div>
-        </div>
-      </div>
+<div class="card-header">
+  <h2>{{col.nom}} {{col.prenoms}} </h2>
+</div>
+<div class="card-body">
+  <div class="row">
+    <div class="col-4">
+     <img src="{{col.photoUrl}}" class="img-fluid" alt="Responsive image">
     </div>
-    <div "card-footer">
-      <div class="row">
-        <div class=col-6>
-          <button (click)="newCollegue()">Créer un nouveau collègue</button>
+    <div class="col-8">
+      <div class='row'>
+        <div class='col-lg-5 col-sm-12'>
+          <p>Matricule:</p>
         </div>
-        <div class=col-6>
-            <button (click)="Modifier()">Modifier</button>
+        <div class='col-lg-7 col-sm-12'>
+          <p>{{col.matricule}}</p>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-lg-5 col-sm-12'>
+          <p>Nom:</p>
+        </div>
+        <div class='col-lg-7 col-sm-12'>
+          <p>{{col.nom}}</p>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-lg-5 col-sm-12'>
+          <p>Prenom:</p>
+        </div>
+        <div class='col-lg-7 col-sm-12'>
+          <p>{{col.prenoms}}</p>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-lg-5 col-sm-12'>
+          <p>email:</p>
+        </div>
+        <div class='col-lg-7 col-sm-12'>
+          <p>{{col.email}}</p>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-lg-5 col-sm-12'>
+          <p>date de Naissance:</p>
+        </div>
+        <div class='col-lg-7 col-sm-12'>
+          <p>{{col.dateDeNaissance| date:'dd-MM-yyyy'}}</p>
         </div>
       </div>
     </div>
   </div>
+
+</div>
+<div class="card-footer">
+  <div class="row">
+    <div class=col-6>
+      <a href="#" (click)="newCollegue()">Ajouter nouveaux collegue</a>
+    </div>
+    <div class=col-6>
+      <button (click)="Modifier()">Modifier</button>
+    </div>
+  </div>
+</div>

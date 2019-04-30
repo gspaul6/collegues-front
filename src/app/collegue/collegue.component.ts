@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { collegueMock } from '../mock/collegues.mock';
 import { Collegue } from '../models/Collegue';
 
@@ -12,11 +12,15 @@ export class CollegueComponent implements OnInit {
   
   
     @Input()col:Collegue;
+  
+    @Output() change:EventEmitter<string> = new EventEmitter<string>();
 
   newCollegue(){
-
+    this.change.emit('du nouveau utiliser')
   }
-  Modifier(){}
+  Modifier(){
+    this.change.emit('Modifier')
+  }
 
   ngOnInit() {
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { collegueMock } from './mock/collegues.mock';
-
+import { Collegue } from "./models/Collegue";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,8 +10,11 @@ import { collegueMock } from './mock/collegues.mock';
 export class AppComponent implements OnInit {
   title = 'collegues-front';
 
-   colCollegue=collegueMock;
-  
+  collegueArray:Collegue[]=collegueMock;
+   
+  traiter(leTexte:string){
+    alert(leTexte);
+  }
   ngOnInit(): void {
    // console.log(this.collegue)
   }
