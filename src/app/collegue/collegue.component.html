@@ -1,10 +1,10 @@
 <div class="card-header">
-  <h2>{{col.nom | uppercase}} {{col.prenoms}} </h2>
+  <h2>{{col.nom }} {{col.prenoms}} </h2>
 </div>
 <div class="card-body">
   <div class="row">
     <div class="col-4">
-     <img src="{{col.photoUrl}}" class="img-fluid" alt="Responsive image">
+      <img src="{{col.photoUrl}}" class="img-fluid" alt="Responsive image">
     </div>
     <div class="col-8">
       <div class='row'>
@@ -20,7 +20,7 @@
           <p>Nom:</p>
         </div>
         <div class='col-lg-7 col-sm-12'>
-          <p>{{col.nom}}</p>
+          <p>{{col.nom |uppercase }}</p>
         </div>
       </div>
       <div class='row'>
@@ -33,20 +33,29 @@
       </div>
       <div class='row'>
         <div class='col-lg-5 col-sm-12'>
-          <p>email:</p>
+          <p>date de Naissance:</p>
         </div>
         <div class='col-lg-7 col-sm-12'>
-          <p>{{col.email}}</p>
+          <p>{{col.dateDeNaissance| date}}</p>
         </div>
       </div>
       <div class='row'>
         <div class='col-lg-5 col-sm-12'>
-          <p>date de Naissance:</p>
+          <p>email:</p>
         </div>
         <div class='col-lg-7 col-sm-12'>
-          <p>{{col.dateDeNaissance| date:'dd-MM-yyyy'}}</p>
+          <div *ngIf="!modifier; else modifierBlock">
+            <input type="text" value={{col.email}} #saisie1>
+            <input type="text" value={{col.photoUrl}} #saisie2>
+          </div>
+          <ng-template #modifierBlock>
+            <div>
+              <p>{{col.email}}</p>
+            </div>
+          </ng-template>
         </div>
       </div>
+
     </div>
   </div>
 
@@ -54,10 +63,11 @@
 <div class="card-footer">
   <div class="row">
     <div class=col-6>
-      <a href="#" (click)="newCollegue()">Ajouter nouveaux collegue</a>
+
+      <a href="#" [hidden]="!modifier" (click)="newCollegue()" (click)="newCollegueClick=!newCollegueClick">Ajouter   nouveaux    collegue</a>
     </div>
     <div class=col-6>
-      <button (click)="Modifier()">Modifier</button>
+      <button [hidden]="!newCollegueClick" (click)="Modifier()" (click)="modifier=!modifier">{{nameModifier}}</button>
     </div>
   </div>
 </div>
