@@ -16,8 +16,8 @@
 
     <div class="col-lg-6 col-sm-12">
 
-      <div class="card mb-4" *ngFor="let col of collegueArray">
-        <app-collegue [col]="col" (change)="traiter($event)"></app-collegue>
+      <div class="card mb-4" >
+        <app-collegue (change)="traiter($event)"></app-collegue>
       </div>
     </div>
 

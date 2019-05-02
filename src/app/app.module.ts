@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 import { CollegueComponent } from './collegue/collegue.component';
 import { RechercheCollegueParNomComponent } from './recherche-collegue-par-nom/recherche-collegue-par-nom.component';
 import { DataService } from './services/data.service';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -12,7 +12,7 @@ import { DataService } from './services/data.service';
     RechercheCollegueParNomComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, HttpClientModule,
   ],
   //providers: [],
   providers: [DataService],

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { collegueMock } from '../mock/collegues.mock';
 import { Collegue } from '../models/Collegue';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-collegue',
@@ -11,10 +12,12 @@ export class CollegueComponent implements OnInit {
   modifier:boolean=true;
   newCollegueClick:boolean=true;
    nameModifier:string="Modifier";
-    @Input()col:Collegue;
+    col:Collegue;
   
     @Output() change:EventEmitter<string> = new EventEmitter<string>();
+constructor(private service:DataService){
 
+}
   newCollegue(){
     this.change.emit('du nouveau utiliser')
     //this.newCollegueClick=true;
@@ -30,5 +33,6 @@ export class CollegueComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.service.prendreAbonnement().subscribe(collegue=>this.col=collegue);
 }
 }
