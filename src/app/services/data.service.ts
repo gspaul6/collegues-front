@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Collegue } from '../models/Collegue';
+import { Collegue, CollegueModifier } from '../models/Collegue';
 import { collegueMock } from '../mock/collegues.mock';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpResponse } from '@angular/common/http';
@@ -38,5 +38,8 @@ export class DataService {
    
    ;
   }
-  
+  modificationCollegueCourant(matricule:string, modifiercollegue:CollegueModifier )/*:Observable<Collegue>*/{
+    console.log (modifiercollegue);
+    return this.httpClient.patch<Collegue>(`${this.urlSpring}/${matricule}`, modifiercollegue);
+  }
 }

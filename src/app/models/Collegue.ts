@@ -20,11 +20,16 @@ export class Collegue implements OnInit {
             this.email= email;
             this.photoUrl=photoUrl;
     }
+   
+}
 
-    
-
-
-
-
+export class CollegueModifier {
+  email:string;
+  photo:string;
+  constructor(email:string,photoUrl:string){
+    this.email=email;
+    this.photo=photoUrl;
+   
+  }    
 
 }

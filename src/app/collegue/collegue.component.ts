@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { collegueMock } from '../mock/collegues.mock';
-import { Collegue } from '../models/Collegue';
+import { Collegue, CollegueModifier } from '../models/Collegue';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -11,25 +11,28 @@ import { DataService } from '../services/data.service';
 export class CollegueComponent implements OnInit {
   modifier:boolean=true;
   newCollegueClick:boolean=true;
-   nameModifier:string="Modifier";
-    col:Collegue;
-  
-    @Output() change:EventEmitter<string> = new EventEmitter<string>();
-constructor(private service:DataService){
+  nameModifier:string="Modifier";
+  col:Collegue;
+  collegueModifier:CollegueModifier=new CollegueModifier(" "," ");
+
+   @Output() change:EventEmitter<string> = new EventEmitter<string>();
+   constructor(private service:DataService){
 
 }
   newCollegue(){
-    this.change.emit('du nouveau utiliser')
-    //this.newCollegueClick=true;
+ //   this.change.emit('du nouveau utiliser')
+    
   }
   Modifier(){
-    this.change.emit('Modifier')
-    //this.modifier=true;
-  if(this.modifier){
-    this.nameModifier="Valider";
-  }else{
-    this.nameModifier="Modifier";
-  }
+    if(this.modifier){
+      this.nameModifier="Valider";
+      this.collegueModifier.email=this.col.email;
+      this.collegueModifier.photo=this.col.photoUrl;
+      this.service.modificationCollegueCourant(this.col.matricule, this.collegueModifier).subscribe(collegue => {}, err => {});
+
+    }else{
+      this.nameModifier="Modifier";
+    }
   }
 
   ngOnInit() {
