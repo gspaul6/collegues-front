@@ -6,19 +6,17 @@ import { RechercheCollegueParNomComponent } from './recherche-collegue-par-nom/r
 import { DataService } from './services/data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule }   from '@angular/forms';
-import { AddComponent } from './add/add.component';
 import { AddCollegueComponent } from './add-collegue/add-collegue.component';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
     CollegueComponent,
     RechercheCollegueParNomComponent,
-    AddComponent,
     AddCollegueComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule, FormsModule,
+    BrowserModule, HttpClientModule, FormsModule, NgbModule,
   ],
   //providers: [],
   providers: [DataService],

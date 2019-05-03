@@ -1,57 +1,57 @@
 <form (ngSubmit)="Modifier(col.matricule)" #collegueForm="ngForm">
-<div class="card-header">
-  <h2>{{col.nom }} {{col.prenoms}} </h2>
-</div>
-<div class="card-body">
-  <div class="row">
-    <div class="col-4">
-      <img src="{{col.photoUrl}}" class="img-fluid" alt="Responsive image">
-    </div>
-    <div class="col-8">
-      <div class='row'>
-        <div class='col-lg-5 col-sm-12'>
-          <p>Matricule:</p>
-        </div>
-        <div class='col-lg-7 col-sm-12'>
-          <p>{{col.matricule}}</p>
-        </div>
+  <div class="card-header">
+    <h2>{{col.nom }} {{col.prenoms}} </h2>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-4">
+        <img src="{{col.photoUrl}}" class="img-fluid" alt="Responsive image">
       </div>
-      <div class='row'>
-        <div class='col-lg-5 col-sm-12'>
-          <p>Nom:</p>
+      <div class="col-8">
+        <div class='row'>
+          <div class='col-lg-5 col-sm-12'>
+            <p>Matricule:</p>
+          </div>
+          <div class='col-lg-7 col-sm-12'>
+            <p>{{col.matricule}}</p>
+          </div>
         </div>
-        <div class='col-lg-7 col-sm-12'>
-          <p>{{col.nom |uppercase }}</p>
+        <div class='row'>
+          <div class='col-lg-5 col-sm-12'>
+            <p>Nom:</p>
+          </div>
+          <div class='col-lg-7 col-sm-12'>
+            <p>{{col.nom |uppercase }}</p>
+          </div>
         </div>
-      </div>
-      <div class='row'>
-        <div class='col-lg-5 col-sm-12'>
-          <p>Prenom:</p>
+        <div class='row'>
+          <div class='col-lg-5 col-sm-12'>
+            <p>Prenom:</p>
+          </div>
+          <div class='col-lg-7 col-sm-12'>
+            <p>{{col.prenoms}}</p>
+          </div>
         </div>
-        <div class='col-lg-7 col-sm-12'>
-          <p>{{col.prenoms}}</p>
+        <div class='row'>
+          <div class='col-lg-5 col-sm-12'>
+            <p>date de Naissance:</p>
+          </div>
+          <div class='col-lg-7 col-sm-12'>
+            <p>{{col.dateDeNaissance| date}}</p>
+          </div>
         </div>
-      </div>
-      <div class='row'>
-        <div class='col-lg-5 col-sm-12'>
-          <p>date de Naissance:</p>
-        </div>
-        <div class='col-lg-7 col-sm-12'>
-          <p>{{col.dateDeNaissance| date}}</p>
-        </div>
-      </div>
-      <div class='row'>
-        <div class='col-lg-5 col-sm-12'>
-          <p>email:</p>
-        </div>
-        <div class='col-lg-7 col-sm-12'>
-          
+        <div class='row'>
+          <div class='col-lg-5 col-sm-12'>
+            <p>email:</p>
+          </div>
+          <div class='col-lg-7 col-sm-12'>
+
             <div class="form-group">
               <div *ngIf="!modifier; else modifierBlock">
                 <input type="email" name="emailModifier" class="form-control"
                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" [(ngModel)]="col.email" #emailModifier="ngModel">
-               <div *ngIf="emailModifier.dirty && emailModifier.invalid">
-                 <p>Le Email est invalide.</p>  
+                <div *ngIf="emailModifier.dirty && emailModifier.invalid">
+                  <p>Le Email est invalide.</p>
                 </div>
                 <input type="url" name="photoUrlModifier" class="form-control" pattern="https?://.{7,}"
                   #photoUrlModifier="ngModel" [(ngModel)]="col.photoUrl">
@@ -60,32 +60,37 @@
                 </div>
               </div>
             </div>
-          
-          <ng-template #modifierBlock>
-            <div>
-              <p>{{col.email}}</p>
-            </div>
-          </ng-template>
+
+            <ng-template #modifierBlock>
+              <div>
+                <p>{{col.email}}</p>
+              </div>
+            </ng-template>
+          </div>
         </div>
+
+      </div>
+    </div>
+
+  </div>
+  <div class="card-footer">
+    <div class="row">
+      <div class=col-6>
+
+        <button type="button" [hidden]="!modifier" class="btn btn-primary" 
+           (click)="newCollegueClick=!newCollegueClick">Ajouter nouveaux
+          collegue</button>
+        <div *ngIf="newCollegueClick">
+          <app-add-collegue></app-add-collegue>
+              </div>
+          
+      </div>
+      <div class=col-6>
+        <button type="submit" [hidden]="!newCollegueClick" class="btn btn-primary" (click)="modifier=!modifier"
+          [disabled]="!collegueForm.form.valid">{{nameModifier}}</button>
       </div>
 
     </div>
-  </div>
 
-</div>
-<div class="card-footer">
-  <div class="row">
-    <div class=col-6>
-
-      <button type="button"  href="#" [hidden]="!modifier" class="btn btn-default" (click)="newCollegue()"
-        (click)="newCollegueClick=!newCollegueClick" >Ajouter nouveaux collegue</button>
-    </div>
-    <div class=col-6>
-      <button type="submit" [hidden]="!newCollegueClick" class="btn btn-primary" (click)="modifier=!modifier" 
-      [disabled]="!collegueForm.form.valid">{{nameModifier}}</button>
-    </div>
-    
   </div>
-  
-</div>
 </form>

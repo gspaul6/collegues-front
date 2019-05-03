@@ -1,3 +1,105 @@
-<p>
-  add-collegue works!
-</p>
+<form (ngSubmit)="ajouterCollegue()" #collegueForm="ngForm">
+  <div class="card mb-4">
+    <div class="card-header">
+      <h2>Ajouter Collegue</h2>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-4">
+          <img src="{{ajoutCollegue.photoUrl}}" class="img-fluid" alt="Responsive image">
+        </div>
+        <div class="col-8">
+          <div class='row'>
+            <div class='col-lg-5 col-sm-12'>
+              <p>Nom:</p>
+            </div>
+            <div class='col-lg-7 col-sm-12'>
+              <input type="text" name="nomCollegue" class="form-control" [(ngModel)]="ajoutCollegue.nom"
+                #nomCollegue="ngModel" required minlength="3">
+              <div *ngIf="nomCollegue.dirty && nomCollegue.invalid">
+                <p>Le nom est invalide.</p>
+              </div>
+            </div>
+            <div class='row'>
+              <div class='col-lg-5 col-sm-12'>
+                <p>Prenom:</p>
+              </div>
+              <div class='col-lg-7 col-sm-12'>
+                <input type="text" name="prenomsCollegue" class="form-control" [(ngModel)]="ajoutCollegue.prenoms"
+                  #prenomsCollegue="ngModel" required minlength="3">
+                <div *ngIf="prenomsCollegue.dirty && prenomsCollegue.invalid">
+                  <p>Le prenom est invalide.</p>
+                </div>
+              </div>
+            </div>
+            <div class='row'>
+              <div class='col-lg-5 col-sm-12'>
+                <p>date de Naissance:</p>
+              </div>
+              <div class='col-lg-7 col-sm-12'>
+                <input type="date" name="dateCollegue" class="form-control" [(ngModel)]="ajoutCollegue.dateDeNaissance"
+                  #dateCollegue="ngModel" required minlength="3">
+                <div *ngIf="dateCollegue.dirty && dateCollegue.invalid" >
+                  <p>Le prenom est invalide.</p>
+                </div>
+              </div>
+            </div>
+            <div class='row'>
+              <div class='col-lg-5 col-sm-12'>
+                <p>email:</p>
+              </div>
+              <div class='col-lg-7 col-sm-12'>
+
+                <input type="email" name="emailAdd" class="form-control"
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" [(ngModel)]="ajoutCollegue.email"
+                  #emailAdd="ngModel">
+                <div *ngIf="emailAdd.dirty && emailAdd.invalid">
+                  <p>Le Email est invalide.</p>
+                </div>
+
+              </div>
+            </div>
+            <div class='row'>
+              <div class='col-lg-5 col-sm-12'>
+                <p>PhotoUrl:</p>
+              </div>
+              <div class='col-lg-7 col-sm-12'>
+
+                <input type="url" name="photoUrlAdd" class="form-control" pattern="https?://.{7,}"
+                  #photoUrlAdd="ngModel" [(ngModel)]="ajoutCollegue.photoUrl">
+                <div *ngIf="photoUrlAdd.dirty && photoUrlAdd.invalid">
+                  Le url est invalide.
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <div class=col-6>
+
+          <button type="button" [hidden]="!modifier" class="btn btn-primary"
+            (click)="newCollegueClick=!newCollegueClick">cancel</button>
+          <div *ngIf="newCollegueClick">
+            
+          </div>
+
+        </div>
+        <div class=col-6>
+          <button type="submit" [hidden]="!newCollegueClick" class="btn btn-primary" (click)="modifier=!modifier"
+            [disabled]="!collegueForm.form.valid">{{nameModifier}}</button>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+</form>
