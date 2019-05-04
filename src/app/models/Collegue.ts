@@ -10,6 +10,7 @@ export class Collegue implements OnInit {
     public email: string;
     public dateDeNaissance: Date;
     public photoUrl: string;
+    
     constructor( matricule: string, nom: string, prenoms: string, dateDeNaissance: Date,
          email: string,        
         photoUrl: string, ) {

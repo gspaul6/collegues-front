@@ -11,8 +11,6 @@ import { Observable, Subject, interval, AsyncSubject } from "rxjs";
 export class RechercheCollegueParNomComponent implements OnInit {
 
   research: string[];
-  listExists: boolean = true;
-  message: string = "";
 
   constructor(private _service: DataService) {
 
@@ -22,16 +20,16 @@ export class RechercheCollegueParNomComponent implements OnInit {
   researchParNom(saisie: string): any {
 
     return this._service.researchParNomService(saisie).subscribe(tabPosts => {
-      this.research = tabPosts;
-    },
-      erreur => { });
+       this.research = tabPosts;
+      },
+      erreur => {});
   }
   recupererCollegueCourant(matricules: string): void {
-   
+
     this._service.recupererCollegueCourant(matricules).subscribe(collegue => {}, err => {});
 
   }
-  ngOnInit():void {
+  ngOnInit(): void {
 
   }
 

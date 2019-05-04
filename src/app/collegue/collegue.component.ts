@@ -12,10 +12,11 @@ export class CollegueComponent implements OnInit {
   modifier:boolean=true;
   newCollegueClick:boolean=true;
   nameModifier:string="Modifier";
-  col:Collegue = new Collegue("", "", "", undefined, "", "");
+  col:Collegue;
   collegueModifier:CollegueModifier=new CollegueModifier(" "," ");
+  messageModifOk: string;
+  messageModifKo: string;
 
-   @Output() change:EventEmitter<string> = new EventEmitter<string>();
    constructor(private service:DataService) {
 
 }
@@ -26,7 +27,16 @@ export class CollegueComponent implements OnInit {
       this.collegueModifier.email=this.col.email;
       this.collegueModifier.photo=this.col.photoUrl;
       // tslint:disable-next-line:no-empty
-      this.service.modificationCollegueCourant(this.col.matricule, this.collegueModifier).subscribe(collegue => {}, err => {});
+      this.service.modificationCollegueCourant(this.col.matricule, this.collegueModifier).subscribe(collegue => {
+        this.messageModifKo = undefined;
+        this.messageModifOk = "Modification successfull";
+        setTimeout(() => this.messageModifOk = undefined,6000);
+        setTimeout(() => this.nameModifier = "Modifier",6000);
+      }, err => {
+        this.messageModifOk = undefined;
+        this.messageModifKo = `${err.error}`;
+        setTimeout(() => this.messageModifKo = undefined,6000);
+      });
 
     } else {
       this.nameModifier="Modifier";

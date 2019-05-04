@@ -76,7 +76,13 @@
 
         </div>
       </div>
-
+      <div *ngIf="messageModifKo" class="alert alert-danger">
+          <p>{{ messageModifKo }}</p>
+        </div>
+        <div *ngIf="messageModifOk" class="alert alert-success">
+          <p>{{ messageModifOk }}</p>
+        </div>
+      </div>
     </div>
     <div class="card-footer">
       <div class="text-center">
@@ -89,6 +95,6 @@
 
 
 
-  </div>
+  
 
 </form>

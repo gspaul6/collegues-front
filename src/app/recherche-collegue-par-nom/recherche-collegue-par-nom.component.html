@@ -1,19 +1,22 @@
 <div>
   <label>Researche par nom</label>
   <input type='text' #saisie1>
-  <button (click)="researchParNom(saisie1.value)" (click)="listExists=!listExists">Researche</button>
+  <button (click)="researchParNom(saisie1.value)">Researche</button>
   <div>
-  <div *ngIf="listExists else doesNot">
-    <label value="saisie1.value"> </label>
-    <ul *ngFor="let matricule of research" >
-   <li><a href=# (click)="recupererCollegueCourant(matricule)">{{matricule}}</a></li> 
-  </ul>
+    <div *ngIf="research && research.length > 0">
+      <label value="saisie1.value"> </label>
+      <ul *ngFor="let matricule of research">
+        <li><a href=# (click)="recupererCollegueCourant(matricule)">{{matricule}}</a></li>
+      </ul>
+    </div>
+    <div>
+      <div *ngIf="research && research.length === 0">
 
-  <ng-template #doesNot>
-      <div>
-        <p>the number does not exist</p>
+        <div class="alert alert-danger">
+          <p>the name does not exist</p>
+        </div>
+
       </div>
-    </ng-template>
+    </div>
   </div>
-</div>
 </div>
