@@ -3,7 +3,7 @@
   <input type='text' #saisie1>
   <button (click)="researchParNom(saisie1.value)" (click)="listExists=!listExists">Researche</button>
   <div>
-  <div *ngIf="!listExists else doesNot">
+  <div *ngIf="listExists else doesNot">
     <label value="saisie1.value"> </label>
     <ul *ngFor="let matricule of research" >
    <li><a href=# (click)="recupererCollegueCourant(matricule)">{{matricule}}</a></li> 

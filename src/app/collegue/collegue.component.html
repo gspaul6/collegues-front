@@ -78,11 +78,8 @@
       <div class=col-6>
 
         <button type="button" [hidden]="!modifier" class="btn btn-primary" 
-           (click)="newCollegueClick=!newCollegueClick">Ajouter nouveaux
-          collegue</button>
-        <div *ngIf="newCollegueClick">
-          <app-add-collegue></app-add-collegue>
-              </div>
+           (click)="newCollegueClick=!newCollegueClick">Ajouter nouveaux collegue</button>
+        
           
       </div>
       <div class=col-6>
@@ -94,3 +91,7 @@
 
   </div>
 </form>
+
+<div *ngIf="newCollegueClick">
+  <app-add-collegue></app-add-collegue>
+      </div>
