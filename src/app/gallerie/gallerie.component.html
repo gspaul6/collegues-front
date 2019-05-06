@@ -12,9 +12,10 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-3 col-sm-12" *ngFor="let col of collegue">
+        <div class="col-4" *ngFor="let col of collegue">
             <a routerLink="/gallerie/{{col.matricule}}"> <img class="img-fluid" src="{{col.photoUrl}}"></a>
+            
         </div>
-
+        
     </div>
 </div>

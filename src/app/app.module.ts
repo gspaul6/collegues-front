@@ -12,7 +12,8 @@ import { EmailValidatorDirective } from './validators/email-validator.directive'
 import { ROUTES } from './app.routes';
 import { RouterModule } from '@angular/router';
 import { GallerieComponent } from './gallerie/gallerie.component';
-import{MenuComponent} from './menu/menu.component'
+import{MenuComponent} from './menu/menu.component';
+import { CourantCollegueComponent } from './courant-collegue/courant-collegue.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import{MenuComponent} from './menu/menu.component'
     AddCollegueComponent,
     EmailValidatorDirective,
     MenuComponent,
-    GallerieComponent
+    GallerieComponent,
+    CourantCollegueComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule, NgbModule, RouterModule.forRoot(ROUTES),

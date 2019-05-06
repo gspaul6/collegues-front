@@ -44,7 +44,7 @@ export class DataService {
     return this.httpClient.post<Collegue>(`${this.urlSpring}`, collegue);
 
   }
-  researchAllCollegue():Observable<ColPhotoMatricule>{
-    return this.httpClient.get<ColPhotoMatricule>(`${this.urlSpring}/all`);
+  researchAllCollegue():Observable<ColPhotoMatricule[]> {
+    return this.httpClient.get<ColPhotoMatricule[]>(`${this.urlSpring}/all`);
   }
 }
