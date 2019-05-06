@@ -9,16 +9,22 @@ import { FormsModule }   from '@angular/forms';
 import { AddCollegueComponent } from './add-collegue/add-collegue.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { EmailValidatorDirective } from './validators/email-validator.directive';
+import { ROUTES } from './app.routes';
+import { RouterModule } from '@angular/router';
+import { GallerieComponent } from './gallerie/gallerie.component';
+import{MenuComponent} from './menu/menu.component'
 @NgModule({
   declarations: [
     AppComponent,
     CollegueComponent,
     RechercheCollegueParNomComponent,
     AddCollegueComponent,
-    EmailValidatorDirective
+    EmailValidatorDirective,
+    MenuComponent,
+    GallerieComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule, FormsModule, NgbModule,
+    BrowserModule, HttpClientModule, FormsModule, NgbModule, RouterModule.forRoot(ROUTES),
   ],
   //providers: [],
   providers: [DataService],

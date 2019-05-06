@@ -6,6 +6,7 @@ import { HttpClient, HttpResponse } from "@angular/common/http";
 import { map, tap } from "rxjs/operators";
 import { Observable, Subject } from "rxjs";
 import { CollegueAdd } from "../models/CollegueAdd";
+import { ColPhotoMatricule } from '../models/ColPhotoMatricule';
 
 @Injectable({
   providedIn: "root"
@@ -43,7 +44,7 @@ export class DataService {
     return this.httpClient.post<Collegue>(`${this.urlSpring}`, collegue);
 
   }
-  researchAllCollegue():Observable<Collegue>{
-    return this.httpClient.get<Collegue>(`${this.urlSpring}/email`);
+  researchAllCollegue():Observable<ColPhotoMatricule>{
+    return this.httpClient.get<ColPhotoMatricule>(`${this.urlSpring}/all`);
   }
 }
