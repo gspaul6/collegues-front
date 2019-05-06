@@ -9,41 +9,36 @@ import { DataService } from "../services/data.service";
   styleUrls: ["./collegue.component.css"]
 })
 export class CollegueComponent implements OnInit {
-  modifier:boolean=true;
-  newCollegueClick:boolean=true;
-  nameModifier:string="Modifier";
-  col:Collegue;
-  collegueModifier:CollegueModifier=new CollegueModifier(" "," ");
+  modifier: boolean = true;
+  newCollegueClick: boolean = true;
+  col: Collegue;
+  collegueModifier: CollegueModifier = new CollegueModifier(" ", " ");
   messageModifOk: string;
   messageModifKo: string;
 
-   constructor(private service:DataService) {
+  constructor(private service: DataService) {
 
-}
+  }
 
-  Modifier():void {
-    if(this.modifier) {
-      this.nameModifier="Valider";
-      this.collegueModifier.email=this.col.email;
-      this.collegueModifier.photo=this.col.photoUrl;
-      // tslint:disable-next-line:no-empty
+  Modifier(): void {
+    
+
+      this.collegueModifier.email = this.col.email;
+      this.collegueModifier.photo = this.col.photoUrl;
       this.service.modificationCollegueCourant(this.col.matricule, this.collegueModifier).subscribe(collegue => {
         this.messageModifKo = undefined;
         this.messageModifOk = "Modification successfull";
-        setTimeout(() => this.messageModifOk = undefined,6000);
-        setTimeout(() => this.nameModifier = "Modifier",6000);
+        setTimeout(() => this.messageModifOk = undefined,10000);
       }, err => {
         this.messageModifOk = undefined;
         this.messageModifKo = `${err.error}`;
-        setTimeout(() => this.messageModifKo = undefined,6000);
+        setTimeout(() => this.messageModifKo = undefined, 2000);
       });
 
-    } else {
-      this.nameModifier="Modifier";
-    }
+    
   }
 
-  ngOnInit():void {
-    this.service.prendreAbonnement().subscribe(collegue=>this.col=collegue);
-}
+  ngOnInit(): void {
+    this.service.prendreAbonnement().subscribe(collegue => this.col = collegue);
+  }
 }

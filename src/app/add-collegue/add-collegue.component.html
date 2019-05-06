@@ -15,7 +15,7 @@
             </div>
             <div class='col-lg-7 col-sm-12'>
               <input type="text" name="nomCollegue" class="form-control" [(ngModel)]="ajoutCollegue.nom"
-                #nomCollegue="ngModel" required minlength="3">
+                #nomCollegue="ngModel" [ngModelOptions]="{updateOn:'blur'}" required minlength="3">
               <div class="alert alert-danger" *ngIf="nomCollegue.dirty && nomCollegue.invalid">
                 <p>Le nom est invalide.</p>
               </div>
@@ -26,7 +26,7 @@
               </div>
               <div class='col-lg-7 col-sm-12'>
                 <input type="text" name="prenomsCollegue" class="form-control" [(ngModel)]="ajoutCollegue.prenoms"
-                  #prenomsCollegue="ngModel" required minlength="3">
+                  #prenomsCollegue="ngModel" [ngModelOptions]="{updateOn:'blur'}" required minlength="3">
                 <div class="alert alert-danger" *ngIf="prenomsCollegue.dirty && prenomsCollegue.invalid">
                   <p>Le prenom est invalide.</p>
                 </div>
@@ -38,7 +38,7 @@
               </div>
               <div class='col-lg-7 col-sm-12'>
                 <input type="date" name="dateCollegue" class="form-control" [(ngModel)]="ajoutCollegue.dateDeNaissance"
-                  #dateCollegue="ngModel" required minlength="3">
+                  #dateCollegue="ngModel" [ngModelOptions]="{updateOn:'blur'}" required minlength="3">
                 <div class="alert alert-danger" *ngIf="dateCollegue.dirty && dateCollegue.invalid">
                   <p>Le prenom est invalide.</p>
                 </div>
@@ -51,10 +51,11 @@
               <div class='col-lg-7 col-sm-12'>
 
                 <input type="email" name="email" class="form-control"
-                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" [(ngModel)]="ajoutCollegue.email"
-                  #email="ngModel">
-                <div class="alert alert-danger" *ngIf="email.dirty && email.invalid">
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" [ngModelOptions]="{updateOn:'blur'}" [(ngModel)]="ajoutCollegue.email"
+                  #email="ngModel" appEmailValidator>
+                <div class="alert alert-danger" *ngIf="email.dirty && email.invalid ">
                   <p>Le Email est invalide.</p>
+                  <p>{{email.errors | json }}</p>
                 </div>
 
               </div>
@@ -66,7 +67,7 @@
               <div class='col-lg-7 col-sm-12'>
 
                 <input type="url" name="photoUrlAdd" class="form-control" pattern="https?://.{7,}"
-                  #photoUrlAdd="ngModel" [(ngModel)]="ajoutCollegue.photoUrl">
+                  #photoUrlAdd="ngModel" [ngModelOptions]="{updateOn:'blur'}" [(ngModel)]="ajoutCollegue.photoUrl">
                 <div class="alert alert-danger" *ngIf="photoUrlAdd.dirty && photoUrlAdd.invalid">
                   Le url est invalide.
                 </div>

@@ -61,12 +61,13 @@
               <div class="form-group">
                 <div *ngIf="!modifier; else modifierBlock">
                   <input type="email" name="emailModifier" class="form-control"
-                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" [(ngModel)]="col.email" #emailModifier="ngModel">
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" [(ngModel)]="col.email"
+                    [ngModelOptions]="{updateOn:'blur'}" #emailModifier="ngModel">
                   <div *ngIf="emailModifier.dirty && emailModifier.invalid">
                     <p>Le Email est invalide.</p>
                   </div>
-                  <input type="url" name="photoUrlModifier" class="form-control" pattern="https?://.{7,}"
-                    #photoUrlModifier="ngModel" [(ngModel)]="col.photoUrl">
+                  <input type="url" name="photoUrlModifier" class="form-control" [ngModelOptions]="{updateOn:'blur'}"
+                    pattern="https?://.{7,}" #photoUrlModifier="ngModel" [(ngModel)]="col.photoUrl">
                   <div *ngIf="photoUrlModifier.dirty && photoUrlModifier.invalid">
                     Le url est invalide.
                   </div>
@@ -99,10 +100,14 @@
 
 
         </div>
-        <div class=col-6>
-          <button type="submit" [hidden]="!newCollegueClick" class="btn btn-primary" (click)="modifier=!modifier"
-            [disabled]="!collegueForm.form.valid">{{nameModifier}}</button>
+        <div class=col-6 *ngIf="!modifier; else buttonElse">
+          <button class="btn btn-primary" (click)="Modifier()"
+            (click)="modifier=!modifier" [disabled]="collegueForm.invalid">Valider</button>
         </div>
+        <ng-template #buttonElse>
+          <button type="submit" [hidden]="!newCollegueClick" class="btn btn-primary" 
+            (click)="modifier=!modifier">Modifier</button>
+        </ng-template>
 
       </div>
 

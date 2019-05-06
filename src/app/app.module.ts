@@ -8,12 +8,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule }   from '@angular/forms';
 import { AddCollegueComponent } from './add-collegue/add-collegue.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { EmailValidatorDirective } from './validators/email-validator.directive';
 @NgModule({
   declarations: [
     AppComponent,
     CollegueComponent,
     RechercheCollegueParNomComponent,
-    AddCollegueComponent
+    AddCollegueComponent,
+    EmailValidatorDirective
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule, NgbModule,
