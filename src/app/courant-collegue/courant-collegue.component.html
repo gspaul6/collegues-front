@@ -1,3 +1,67 @@
-<p>
-  courant-collegue works!
-</p>
+<form class="container">
+  <div class="card mb-4">
+    <div class="card-header">
+      <h2>{{CollegueClicked.nom }} {{CollegueClicked.prenoms}} </h2>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-4">
+          <img src="{{CollegueClicked.photoUrl}}" class="img-fluid" alt="Responsive image">
+        </div>
+        <div class="col-8">
+          <div class="row">
+            <div class='col-lg-5 col-sm-12'>
+              <p>Matricule:</p>
+            </div>
+            <div class='col-lg-7 col-sm-12'>
+              <p>{{CollegueClicked.matricule}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class='col-lg-5 col-sm-12'>
+              <p>Nom:</p>
+            </div>
+            <div class='col-lg-7 col-sm-12'>
+              <p>{{CollegueClicked.nom | uppercase}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class='col-lg-5 col-sm-12'>
+              <p>prenoms:</p>
+            </div>
+            <div class='col-lg-7 col-sm-12'>
+              <p>{{CollegueClicked.prenoms }}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class='col-lg-5 col-sm-12'>
+              <p>Date of Birth:</p>
+            </div>
+            <div class='col-lg-7 col-sm-12'>
+              <p>{{CollegueClicked.dateDeNaissance }}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class='col-lg-5 col-sm-12'>
+              <p>email:</p>
+            </div>
+            <div class='col-lg-7 col-sm-12'>
+              <p>{{CollegueClicked.email}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="class row">
+        <div class="class col-5">
+
+        </div>
+        <div class="class col">
+            <button type="button" class="btn btn-primary"  routerLink="/gallerie">Back</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</form>

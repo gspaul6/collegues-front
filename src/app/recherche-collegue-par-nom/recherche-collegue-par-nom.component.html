@@ -6,7 +6,8 @@
     <div *ngIf="research && research.length > 0">
       <label value="saisie1.value"> </label>
       <ul *ngFor="let matricule of research">
-        <li><a href=# (click)="recupererCollegueCourant(matricule)">{{matricule}}</a></li>
+        <li><button type="button" class="btn btn-link"
+            (click)="recupererCollegueCourant(matricule)">{{matricule}}</button></li>
       </ul>
     </div>
     <div>
