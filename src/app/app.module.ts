@@ -13,7 +13,8 @@ import { ROUTES } from './app.routes';
 import { RouterModule } from '@angular/router';
 import { GallerieComponent } from './gallerie/gallerie.component';
 import{MenuComponent} from './menu/menu.component';
-import { CourantCollegueComponent } from './courant-collegue/courant-collegue.component'
+import { CourantCollegueComponent } from './courant-collegue/courant-collegue.component';
+import { CommentaireComponent } from './commentaire/commentaire.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { CourantCollegueComponent } from './courant-collegue/courant-collegue.co
     EmailValidatorDirective,
     MenuComponent,
     GallerieComponent,
-    CourantCollegueComponent
+    CourantCollegueComponent,
+    CommentaireComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule, NgbModule, RouterModule.forRoot(ROUTES),

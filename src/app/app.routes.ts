@@ -23,6 +23,5 @@ export const ROUTES: Routes = [
         path: "gallerie/:matricule",
         component:CourantCollegueComponent
     }
-    
 
 ];

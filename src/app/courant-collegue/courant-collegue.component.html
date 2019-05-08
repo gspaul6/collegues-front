@@ -65,3 +65,24 @@
     </div>
   </div>
 </form>
+<hr>
+<br>
+<div class="container-fluid">
+    <form class="form-group" #form="ngForm" >
+        <div>
+            <textarea class="form-control mb-4" name="comment" minlength="5" #comment="ngModel" [(ngModel)]="newCommentaire.commentaire" placeholder="Write Something here"></textarea>
+            <div class="alert alert-danger" *ngIf="comment.dirty && comment.invalid">
+                please enter more then 5 charactors
+            </div>
+            
+            <button [disabled]="form.invalid" type="submit" class="btn btn-primary" (click)="addCommentaire()" >Valider</button> 
+        </div>
+    </form>
+</div>
+
+<div class="container-fluid">
+        <div *ngFor="let commentaire of commentaires">
+            <app-commentaire [commentaire]="commentaire" [matricule]="CollegueClicked.matricule" (event)="updateAfterDelete($event)"></app-commentaire>
+        </div>
+        <hr>
+    </div>
