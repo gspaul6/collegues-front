@@ -24,13 +24,13 @@ export class DataService {
   }
 
   researchParNomService(saisie: string): Observable<string[]> {
-    return this.httpClient.get<string[]>(`${this.urlSpring}?nom=${saisie}`);
+    return this.httpClient.get<string[]>(`${this.urlSpring}?nom=${saisie}`,{withCredentials:true});
   }
   researchParEmailService(saisiEmail: string): Observable<string> {
-    return this.httpClient.get<string>(`${this.urlSpring}/email?email=${saisiEmail}`);
+    return this.httpClient.get<string>(`${this.urlSpring}/email?email=${saisiEmail}`,{withCredentials:true});
   }
   recupererCollegueCourant(tabMatricules: string): Observable<Collegue> {
-    return this.httpClient.get<Collegue>(`${this.urlSpring}/${tabMatricules}`)
+    return this.httpClient.get<Collegue>(`${this.urlSpring}/${tabMatricules}`,{withCredentials:true})
       .pipe(
         tap(col => {
           this.sujet.next(col);
@@ -39,23 +39,23 @@ export class DataService {
   }
   modificationCollegueCourant(matricule: string, modifiercollegue: CollegueModifier): any {
     console.log(modifiercollegue);
-    return this.httpClient.patch<Collegue>(`${this.urlSpring}/${matricule}`, modifiercollegue);
+    return this.httpClient.patch<Collegue>(`${this.urlSpring}/${matricule}`, modifiercollegue,{withCredentials:true});
   }
   ajouterCollegue(collegue: CollegueAdd): Observable<Collegue> {
-    return this.httpClient.post<Collegue>(`${this.urlSpring}`, collegue);
+    return this.httpClient.post<Collegue>(`${this.urlSpring}`, collegue,{withCredentials:true});
 
   }
   researchAllCollegue(): Observable<ColPhotoMatricule[]> {
-    return this.httpClient.get<ColPhotoMatricule[]>(`${this.urlSpring}/all`);
+    return this.httpClient.get<ColPhotoMatricule[]>(`${this.urlSpring}/all`,{withCredentials:true});
   }
   researchAllCommentaire(matricule:string): Observable<Commentaire[]> {
-    return this.httpClient.get<Commentaire[]>(`${this.urlSpring}/{matricule}/commentaire`);
+    return this.httpClient.get<Commentaire[]>(`${this.urlSpring}/{matricule}/commentaire`,{withCredentials:true});
   }
   ajouterCommentaire(commentaire: NewCommentaire,matricule:string): Observable<NewCommentaire> {
-    return this.httpClient.post<NewCommentaire>(`${this.urlSpring}/{matricule}/commentaire`, commentaire);
+    return this.httpClient.post<NewCommentaire>(`${this.urlSpring}/{matricule}/commentaire`, commentaire,{withCredentials:true});
   }
   deleteCommentaire(id:Number,matricule:string):Observable<string> {
-    return this.httpClient.delete<string>(`${this.urlSpring}/{matricule}/commentaire/{id}`);
+    return this.httpClient.delete<string>(`${this.urlSpring}/{matricule}/commentaire/{id}`,{withCredentials:true});
   }
 
 }

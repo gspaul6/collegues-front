@@ -22,7 +22,7 @@ constructor(private service: DataService, private route: ActivatedRoute) {
   
 }
 updateAfterDelete(): void {
-  this.updateCommentaire();
+    this.updateCommentaire();
 }
 
 addCommentaire(): void {
@@ -52,7 +52,7 @@ updateCommentaire():void {
 }
 
   ngOnInit() {
- this.matricule=this. route.snapshot.paramMap.get("matricule");
+ this.matricule=this.route.snapshot.paramMap.get("matricule");
  this.service.recupererCollegueCourant(this.matricule).subscribe(collegue => {
    this.CollegueClicked=collegue;
  }, err=> {

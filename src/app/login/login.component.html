@@ -1,0 +1,26 @@
+<form class="container">
+  <div class="form-group ">
+    <div class="card mb-4">
+      <div class="card-header">
+        <h2>Login</h2>
+      </div>
+      <div class="card-body"></div>
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email"
+        [(ngModel)]="nom" [ngModelOptions]="{updateOn:'blur'}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+        #email="ngModel">
+      
+      <div class="alert alert-danger" *ngIf="email.dirty && email.invalid">
+        <p>Le Email est invalide.</p>
+      </div>
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <br>
+    <br>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" name="password" id="password" [(ngModel)]="motPass" #password="ngModel" placeholder="Password">
+    </div>
+  </div>
+</div>
+  <button type="submit" class="btn btn-primary" (click)="getAuth()">Submit</button>
+</form>

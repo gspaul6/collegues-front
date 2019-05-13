@@ -14,7 +14,8 @@ import { RouterModule } from '@angular/router';
 import { GallerieComponent } from './gallerie/gallerie.component';
 import{MenuComponent} from './menu/menu.component';
 import { CourantCollegueComponent } from './courant-collegue/courant-collegue.component';
-import { CommentaireComponent } from './commentaire/commentaire.component'
+import { CommentaireComponent } from './commentaire/commentaire.component';
+import { LoginComponent } from './login/login.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { CommentaireComponent } from './commentaire/commentaire.component'
     MenuComponent,
     GallerieComponent,
     CourantCollegueComponent,
-    CommentaireComponent
+    CommentaireComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule, NgbModule, RouterModule.forRoot(ROUTES),

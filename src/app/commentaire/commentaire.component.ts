@@ -13,7 +13,6 @@ export class CommentaireComponent implements OnInit {
   @Input() commentaire: Commentaire;
   @Input() matricule: string;
   @Output() event=new EventEmitter();
-  messageOk: string;
   messageNotOk: string;
   constructor(private service: DataService) { }
 
@@ -21,11 +20,11 @@ export class CommentaireComponent implements OnInit {
     this.service.deleteCommentaire(this.commentaire.id, this.matricule).subscribe(
       (success) => {
         this.messageNotOk = undefined;
-        this.messageOk = "deletion of Commentaire successful";
-        setTimeout(() => this.messageOk = undefined, 5000);
+        this.event.emit("deletion of Commentaire successful");
+       // setTimeout(() => this.event = undefined, 5000);
       },
       (err) => {
-        this.messageOk = undefined;
+       
         this.messageNotOk = `${err.error}`;
         setTimeout(() => this.messageNotOk = undefined, 5000);
       }

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  urlGet:'http://localhost:8080/collegues'
+  urlGet:'http://localhost:8080/collegues',
+  urlAuth:'http://localhost:8080/auth'
 };
 
 /*
