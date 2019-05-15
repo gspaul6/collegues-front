@@ -14,15 +14,16 @@ export class AuthService {
   
   connected= false;
   urlAuth: string = environment.urlAuth;
+  urlSpring: string = environment.urlGet;
   constructor(private httpClient: HttpClient) { }
 
 authorizationDeCollegue(collegueAuth:CollegueAuth):Observable<CollegueAuth>{
-  return this.httpClient.post<CollegueAuth>(`${this.urlAuth}`,collegueAuth,{withCredentials:true}) .pipe(
+  return this.httpClient.post<CollegueAuth>(`${this.urlAuth}/auth`,collegueAuth,{withCredentials:true}) .pipe(
     tap(()=>this.connected=true )
   );
 }
 receiveUtilisateur():Observable<ColleguesUtilisateur>{
-  return this.httpClient.post<ColleguesUtilisateur>(`${this.urlAuth}/me`,null, {withCredentials:true});
+  return this.httpClient.get<ColleguesUtilisateur>(`${this.urlAuth}/me`,{withCredentials:true});
   
 }
 
@@ -43,8 +44,4 @@ isLogin():Observable<boolean>{
  ) 
  
 }
- 
-
-
-
-}
+} 

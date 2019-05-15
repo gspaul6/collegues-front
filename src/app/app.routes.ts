@@ -17,7 +17,7 @@ export const ROUTES: Routes = [
         component:  GallerieComponent
     },
     {
-        path:"login", canActivate: [ConnexionGuardGuard],
+        path:"login",
         component: LoginComponent
     },
     {
