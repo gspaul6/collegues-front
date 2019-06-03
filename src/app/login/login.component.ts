@@ -10,8 +10,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  nom:string;
-  motPass:string;
+
  messageOk:string;
  messageKo:string;
   collegueAuth:CollegueAuth=new CollegueAuth(" "," ");
@@ -21,9 +20,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 getAuth(){
-
-  this.collegueAuth.nom=this.nom;
-  this.collegueAuth.motPass=this.motPass;
+ 
   this.service.authorizationDeCollegue(this.collegueAuth).subscribe(ok => {
     this.messageKo = undefined;
     this.messageOk = "Login successfull";

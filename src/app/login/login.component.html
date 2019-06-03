@@ -7,7 +7,7 @@
       <div class="card-body"></div>
       <label for="exampleInputEmail1">Email address</label>
       <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email"
-        [(ngModel)]="nom" [ngModelOptions]="{updateOn:'blur'}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+        [(ngModel)]="collegueAuth.nom" [ngModelOptions]="{updateOn:'blur'}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
         #email="ngModel">
       
       <div class="alert alert-danger" *ngIf="email.dirty && email.invalid">
@@ -18,7 +18,7 @@
     <br>
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" class="form-control" name="password" id="password" [(ngModel)]="motPass" #password="ngModel" placeholder="Password">
+      <input type="password" class="form-control" name="password" id="password" [(ngModel)]="collegueAuth.motPass" #password="ngModel" placeholder="Password">
     </div>
   </div>
 </div>

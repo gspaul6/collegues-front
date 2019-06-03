@@ -32,6 +32,9 @@ import { LoginComponent } from './login/login.component'
   imports: [
     BrowserModule, HttpClientModule, FormsModule, NgbModule, RouterModule.forRoot(ROUTES),
   ],
+  exports:[
+    NgbModule
+  ],
   //providers: [],
   providers: [DataService],
   bootstrap: [AppComponent]
